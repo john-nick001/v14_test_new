@@ -745,7 +745,7 @@ def random_choose(driver):
         pass  # 没有弹出，忽略'''
     driver.refresh()
     time.sleep(1)
-    reading_room = "四楼南自习室"
+    reading_room = "三楼理科书库"
     print(f"偏好位置全天无位置可约，现在进入自习室{reading_room}随机寻找座位......")
     # driver = idtf_imf(account, password, options)
     seat_dict, driver = choose_sit(driver, reading_room)
@@ -814,7 +814,7 @@ def main():
         "4032330007": "000000"
     }
     sit_avilable, day_type = None, None
-    users = {"自定义": [account_password4, "四楼南自习室", "255"]}
+    users = {"自定义": [account_password4, "三楼理科书库", "74"]}
     user = "自定义"
     total_accounts = list(users[user][0].items())
     reading_room = users[user][1]
