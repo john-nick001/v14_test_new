@@ -155,7 +155,7 @@ def date_if(prefer_sit,driver):
     if times_roll and len(times_roll) > 0:
         time_labels = times_roll[0].find_elements(By.TAG_NAME, "label")
         time_texts = [label.text for label in time_labels]
-        if all(time in full_day_times for time in get_time_range(full_day_times,"20:00","22:00")):
+        if all(time in full_day_times for time in get_time_range(full_day_times,"15:00","21:00")):
             day_type = 3
             return prefer_sit, day_type, driver  # 改进点  # 找到全天可预约的座位，直接返回座位号
         # 检查是否全天可预约
@@ -184,7 +184,7 @@ def choose_it(driver, sit_avilable, idx, reading_room, day_type, max_attempts=50
     返回:
     bool: 预约是否成功
     """
-    dir_time = {3: [['20:00', '22:00'], ['20:00', '22:00']], 2: [['14:00', '18:00'], ['18:00', '22:00']]}
+    dir_time = {3: [['15:00', '21:00'], ['15:00', '21:00']], 2: [['14:00', '18:00'], ['18:00', '22:00']]}
     start_time = dir_time[day_type][idx][0]
     end_time = dir_time[day_type][idx][1]
 
@@ -495,7 +495,7 @@ def date_whether(seat_dict, driver):
                     time_labels = times_roll[0].find_elements(By.TAG_NAME, "label")
                     time_texts = [label.text for label in time_labels]
 
-                    if all(time in full_day_times for time in get_time_range(full_day_times,"20:00","22:00")):
+                    if all(time in full_day_times for time in get_time_range(full_day_times,"15:00","21:00")):
                         print(f"找到全天可预约座位: {i}")
                         found_full_day = True
                         day_type = 3
@@ -624,7 +624,7 @@ def prefer_whether(account, password, prefer_sit, reading_room, options):
                 time_labels = times_roll[0].find_elements(By.TAG_NAME, "label")
                 time_texts = [label.text for label in time_labels]
                 if all(time in full_day_times for time in
-                       get_time_range(full_day_times, "20:00", "22:00")):
+                       get_time_range(full_day_times, "15:00", "21:00")):
                     print(f"偏好座位{prefer_sit}全天可约")
                     found_full_day = True
                     # driver.quit()。
