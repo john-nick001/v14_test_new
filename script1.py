@@ -828,6 +828,10 @@ def main():
             print(f"处理账号: {account}，使用临时目录: {profile_dir}")
             options = ChromeOptions()
             options.use_chromium = True
+            options.add_argument('--disable-blink-features=AutomationControlled')
+            options.add_argument('--disable-extensions')
+            options.add_argument('--disable-plugins')
+            options.add_argument('--disable-images')  # 禁用图片加载，提高速度
             options.add_argument('--headless=new')
             options.add_argument('--disable-gpu')
             options.add_argument('--no-sandbox')
@@ -903,3 +907,4 @@ def main():
 # 执行主函数
 if __name__ == "__main__":
     main()
+
